@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yp脱口秀-在线观看热门脱口秀节目与精选段子合集</title>
+    <meta name="description" content="yp脱口秀网站提供海量优质脱口秀内容，涵盖单口喜剧、漫才、脱口秀专场及脱口秀演员专访。本站致力于为观众提供轻松幽默的娱乐体验，支持在线观看与精彩片段回放。">
+    <meta name="keywords" content="yp脱口秀,脱口秀,单口喜剧,漫才,在线观看,脱口秀节目">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #ff4757;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+            width: 150px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #dfe6e9;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--accent-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 2px solid #eee;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .section-more {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .section-more:hover {
+            color: var(--accent-color);
+        }
+
+        /* Grid Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Video Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-thumb {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #ddd;
+        }
+
+        .card-thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 71, 87, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .card:hover .play-icon {
+            background: var(--accent-color);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: var(--spacing-md);
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
+        .views {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .category-item {
+            background: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .category-item:hover {
+            border-color: var(--accent-color);
+            background: #fff5f6;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            margin-top: var(--spacing-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #b2bec3;
+            padding: 40px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .search-box {
+                display: none;
+            }
+            .container {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">yp<span>脱口秀</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">单口喜剧</a></li>
+                    <li><a href="#">漫才</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索演员或专场...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>发现生活中的幽默与智慧</h1>
+            <p>yp脱口秀汇集全网优质单口喜剧与漫才资源，为您带来最纯粹的欢笑体验。</p>
+            <div class="hero-tags">
+                <span class="tag">#职场吐槽</span>
+                <span class="tag">#情感生活</span>
+                <span class="tag">#社会热点</span>
+                <span class="tag">#硬核段子</span>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Category Navigation -->
+            <section class="category-grid">
+                <div class="category-item">
+                    <span class="category-icon">🎤</span>
+                    <div class="category-name">单口喜剧</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎭</span>
+                    <div class="category-name">漫才</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎪</span>
+                    <div class="category-name">开放麦</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">📹</span>
+                    <div class="category-name">专场视频</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">📚</span>
+                    <div class="category-name">段子合集</div>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">✍️</span>
+                    <div class="category-name">创作指南</div>
+                </div>
+            </section>
+
+            <!-- Hot Episodes -->
+            <section class="section-header">
+                <h2 class="section-title">热门节目</h2>
+                <span class="section-more">查看全部 &gt;</span>
+            </section>
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy1/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>2023年精选</span>
+                            <span>45:20</span>
+                        </div>
+                        <h3 class="card-title">成年人崩溃的瞬间：关于加班、房贷与发际线</h3>
+                        <p class="card-desc">本场专场深入探讨现代都市人的生存状态，用幽默的方式解构生活中的压力与无奈。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 12.5万</span>
+                            <span>⭐ 9.8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy2/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>漫才专场</span>
+                            <span>32:15</span>
+                        </div>
+                        <h3 class="card-title">《甲方乙方》漫才版：职场沟通的艺术</h3>
+                        <p class="card-desc">经典漫才表演，还原真实职场对话，带你笑看甲乙双方的博弈与妥协。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 8.2万</span>
+                            <span>⭐ 9.5</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy3/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>新人专场</span>
+                            <span>38:40</span>
+                        </div>
+                        <h3 class="card-title">第一次站上舞台：新手演员的尴尬与成长</h3>
+                        <p class="card-desc">记录新人演员的处女秀，从忘词到爆笑，分享舞台背后的真实故事。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 5.6万</span>
+                            <span>⭐ 9.2</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Latest Updates -->
+            <section class="section-header" style="margin-top: 40px;">
+                <h2 class="section-title">最新更新</h2>
+                <span class="section-more">查看全部 &gt;</span>
+            </section>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy4/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>本周热门</span>
+                            <span>50:10</span>
+                        </div>
+                        <h3 class="card-title">如果你有超能力：关于选择的哲学思考</h3>
+                        <p class="card-desc">一场关于假设性问题的脱口秀，探讨如果拥有超能力，生活会变得怎样。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 3.1万</span>
+                            <span>⭐ 9.0</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy5/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>脱口秀</span>
+                            <span>42:05</span>
+                        </div>
+                        <h3 class="card-title">相亲那些事：单身青年的社交实录</h3>
+                        <p class="card-desc">通过相亲经历展开的段子，真实还原当代年轻人的婚恋观与社交现状。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 2.8万</span>
+                            <span>⭐ 8.9</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-thumb">
+                        <img src="https://picsum.photos/seed/comedy6/400/225" alt="脱口秀封面">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span>脱口秀</span>
+                            <span>35:30</span>
+                        </div>
+                        <h3 class="card-title">互联网大厂生存指南：吐槽与自嘲</h3>
+                        <p class="card-desc">针对互联网从业者的专场，用幽默化解职场焦虑，分享独特的工作体验。</p>
+                        <div class="card-footer">
+                            <span class="views">👁 4.5万</span>
+                            <span>⭐ 9.1</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">yp脱口秀的内容来源是什么？</div>
+                    <div class="faq-answer">本站内容主要来自公开演出的授权录像、优秀喜剧演员上传的作品以及合作平台的独家资源。我们致力于为观众提供正版、高清的脱口秀内容。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何支持喜欢的脱口秀演员？</div>
+                    <div class="faq-answer">您可以通过关注演员的社交媒体、购买其周边产品、参加线下开放麦活动以及通过平台打赏等方式给予支持。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">网站是否支持离线观看？</div>
+                    <div class="faq-answer">目前 yp脱口秀 仅提供在线播放服务，暂不支持下载。建议在稳定的网络环境下观看以获得最佳体验。</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 yp脱口秀</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    yp脱口秀 是国内领先的脱口秀内容聚合平台，致力于推广单口喜剧文化，连接观众与演员，让幽默成为生活的调味剂。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">单口喜剧分类</a></li>
+                    <li><a href="#">漫才专区</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">观看帮助</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>合作邮箱：contact@ypshow.com</li>
+                    <li>商务合作：business@ypshow.com</li>
+                    <li>客服热线：400-123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 yp脱口秀 版权所有. 仅供学习交流使用.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
