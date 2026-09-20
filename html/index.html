@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="html5培训班 - 专业的前端开发技能提升平台，提供HTML5、CSS3、JavaScript、Vue/React等主流Web技术实战课程，助你从零基础到高薪就业。">
+    <meta name="keywords" content="html5培训班,前端开发培训,Web开发课程,HTML5教程,JavaScript学习,前端就业">
+    <title>html5培训班-全栈前端开发实战就业课程</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #f59e0b;
+            --text-main: #1f2937;
+            --text-light: #6b7280;
+            --bg-body: #f9fafb;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 100px 0 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .stat-item span {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Why Choose Us */
+        .features {
+            background: var(--bg-card);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: var(--bg-body);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #dbeafe;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Curriculum */
+        .curriculum {
+            background: #f8fafc;
+        }
+
+        .curriculum-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .curriculum-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .curriculum-item:hover {
+            border-left-color: var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .curriculum-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .curriculum-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .curriculum-badge {
+            background: #ecfdf5;
+            color: #059669;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Job Market */
+        .job-market {
+            background: var(--bg-card);
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .market-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius);
+        }
+
+        .market-item .salary {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        /* FAQ */
+        .faq {
+            background: #f9fafb;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            padding-left: 20px;
+            border-left: 2px solid #e5e7eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #d1d5db;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            nav {
+                display: none; /* Simplified for mobile */
+            }
+
+            .market-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>CodeMaster</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="active">课程特色</a></li>
+                    <li><a href="#curriculum">课程大纲</a></li>
+                    <li><a href="#jobs">就业前景</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn btn-primary">立即咨询</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>html5培训班<br><span>打造高薪Web开发技能</span></h1>
+                    <p>从零基础到精通HTML5、CSS3、JavaScript及主流前端框架。我们的实战课程由一线大厂工程师授课，助你快速掌握核心技能，顺利转行或提升薪资。</p>
+                    
+                    <div class="hero-tags">
+                        <span class="tag">零基础入门</span>
+                        <span class="tag">项目实战</span>
+                        <span class="tag">1对1辅导</span>
+                        <span class="tag">推荐就业</span>
+                    </div>
+
+                    <div class="flex-center" style="gap: 16px;">
+                        <a href="#contact" class="btn btn-primary">免费试听课程</a>
+                        <a href="#curriculum" class="btn btn-outline">查看大纲</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <strong>5000+</strong>
+                            <span>毕业学员</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>98%</strong>
+                            <span>就业率</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>15k+</strong>
+                            <span>平均薪资</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/code/600/400" alt="学员在电脑前编写代码" width="600" height="400">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section-padding features">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>为什么选择我们的html5培训班</h2>
+                    <p>不仅仅是代码教学，更是职业发展的全方位指导</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="icon-box">🚀</div>
+                        <h3>实战驱动教学</h3>
+                        <p>摒弃枯燥的理论灌输，通过企业级真实项目（如电商后台、管理后台、响应式网站）进行手把手教学。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">👨‍🏫</div>
+                        <h3>资深讲师团队</h3>
+                        <p>讲师均来自BAT等一线互联网公司，拥有5年以上开发经验，熟悉行业最新技术栈和用人标准。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">💼</div>
+                        <h3>就业保障服务</h3>
+                        <p>提供简历优化、模拟面试、内推机会等一站式就业服务，解决学员求职后顾之忧。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🔄</div>
+                        <h3>终身技术支持</h3>
+                        <p>建立学员技术交流社群，毕业后依然享有技术答疑和职业规划咨询服务。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Section -->
+        <section id="curriculum" class="section-padding curriculum">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>课程大纲与学习路径</h2>
+                    <p>系统化课程体系，由浅入深，循序渐进</p>
+                </div>
+                
+                <div class="curriculum-list">
+                    <div class="curriculum-item">
+                        <div class="curriculum-info">
+                            <h3>阶段一：Web前端基础</h3>
+                            <p>HTML5语义化标签、CSS3布局（Flexbox/Grid）、JavaScript基础语法、DOM操作、ES6+新特性</p>
+                        </div>
+                        <span class="curriculum-badge">入门必修</span>
+                    </div>
+
+                    <div class="curriculum-item">
+                        <div class="curriculum-info">
+                            <h3>阶段二：前端核心进阶</h3>
+                            <p>JavaScript高级编程、异步编程、HTTP协议、浏览器原理、移动端适配与响应式设计</p>
+                        </div>
+                        <span class="curriculum-badge">进阶核心</span>
+                    </div>
+
+                    <div class="curriculum-item">
+                        <div class="curriculum-info">
+                            <h3>阶段三：主流框架应用</h3>
+                            <p>Vue.js / React 框架全家桶、组件化开发、状态管理、路由配置、前后端分离架构</p>
+                        </div>
+                        <span class="curriculum-badge">热门就业</span>
+                    </div>
+
+                    <div class="curriculum-item">
+                        <div class="curriculum-info">
+                            <h3>阶段四：工程化与性能优化</h3>
+                            <p>Webpack/Vite 打包工具、Git版本控制、前端性能优化、SEO基础、小程序开发入门</p>
+                        </div>
+                        <span class="curriculum-badge">高阶提升</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Job Market Section -->
+        <section id="jobs" class="section-padding job-market">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>行业薪资与就业前景</h2>
+                    <p>紧跟市场需求，培养紧缺人才</p>
+                </div>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <h3>初级前端工程师</h3>
+                        <div class="salary">6k - 12k</div>
+                        <p class="text-light">掌握基础HTML/CSS/JS</p>
+                    </div>
+                    <div class="market-item">
+                        <h3>中级前端工程师</h3>
+                        <div class="salary">12k - 20k</div>
+                        <p class="text-light">熟悉框架与组件库</p>
+                    </div>
+                    <div class="market-item">
+                        <h3>高级前端工程师</h3>
+                        <div class="salary">20k - 35k+</div>
+                        <p class="text-light">架构设计与性能优化</p>
+                    </div>
+                    <div class="market-item">
+                        <h3>全栈开发工程师</h3>
+                        <div class="salary">25k - 40k+</div>
+                        <p class="text-light">Node.js + 前端技术栈</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding faq">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>常见问题解答</h2>
+                    <p>关于html5培训班，您可能关心的问题</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">没有编程基础可以学习吗？</div>
+                        <div class="faq-answer">当然可以。我们的课程专门为零基础学员设计，从最基础的计算机原理和HTML标签讲起，只要肯花时间练习，完全能够掌握。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">学习周期需要多长时间？</div>
+                        <div class="faq-answer">全日制脱产班通常为3-4个月，周末班或线上班约为6-8个月。具体时长根据学员的学习进度和投入时间而定。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">毕业后有就业推荐吗？</div>
+                        <div class="faq-answer">有的。我们与多家互联网企业有合作关系，会定期举办校园招聘会，并为优秀学员提供内推机会。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">课程结束后可以免费复学吗？</div>
+                        <div class="faq-answer">提供一定期限的免费复学服务，帮助学员巩固所学知识，解决工作中的遗留问题。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="section-padding text-center" style="background: var(--primary-color); color: white;">
+            <div class="container">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">准备好开启您的编程之旅了吗？</h2>
+                <p style="margin-bottom: 30px; opacity: 0.9;">现在报名，即可领取价值299元的《前端开发学习路线图》及试听名额。</p>
+                <button class="btn" style="background: white; color: var(--primary-color);" onclick="alert('感谢您的兴趣！请联系客服电话：400-123-4567')">立即免费咨询</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>CodeMaster 学院</h3>
+                    <p>专注于高端Web前端开发人才培养，致力于为互联网行业输送优质技术人才。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">课程体系</a></li>
+                        <li><a href="#">名师团队</a></li>
+                        <li><a href="#">学员作品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">在线报名</a></li>
+                        <li><a href="#">学员评价</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：contact@codemaster.com</li>
+                        <li>地址：北京市海淀区科技园路88号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CodeMaster 前端培训学院 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                                                                                                                                   </html>
