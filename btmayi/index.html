@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BT蚂蚁 - 高速稳定的种子资源下载站，提供电影、电视剧、动漫、软件、游戏等BT种子资源索引与磁力链接搜索服务。">
+    <meta name="keywords" content="BT蚂蚁, BT下载, 磁力搜索, 种子下载, 资源索引">
+    <title>BT蚂蚁-高速稳定的种子资源下载与磁力搜索索引</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --primary-hover: #c0392b;
+            --bg-color: #f5f6fa;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            border-radius: 20px;
+            padding: 4px 8px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            flex: 1;
+            padding: 0 10px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 0 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .search-bar button:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .stat-item span {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .section-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-thumb {
+            height: 160px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .hot-list a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hot-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .hot-rank {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #bdc3c7;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+            .nav-menu {
+                display: none; /* Simplified for mobile */
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .stats {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">BT<span>蚂蚁</span></a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">最新发布</a>
+                <a href="#">影视专区</a>
+                <a href="#">游戏下载</a>
+                <a href="#">软件工具</a>
+                <a href="#">高清壁纸</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索电影、剧集、软件...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>发现海量资源，极速下载体验</h1>
+            <p>BT蚂蚁为您提供安全、快速、无广告的P2P资源下载服务。涵盖电影、动漫、游戏、软件及电子书等全类别资源。</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <strong>50万+</strong>
+                    <span>资源文件</span>
+                </div>
+                <div class="stat-item">
+                    <strong>10TB+</strong>
+                    <span>数据总量</span>
+                </div>
+                <div class="stat-item">
+                    <strong>99%</strong>
+                    <span>资源可用性</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="grid-layout">
+            <!-- Movie Card 1 -->
+            <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/movie1/400/250" alt="电影封面">
+                    <span class="card-badge">高清</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">星际穿越 4K Remaster HDR版 [中英双字]</a></h3>
+                    <div class="card-meta">
+                        <span>📁 电影</span>
+                        <span>💾 45.2GB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Movie Card 2 -->
+            <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/anime1/400/250" alt="动漫封面">
+                    <span class="card-badge">连载中</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">进击的巨人 最终季 完结版 1080P BT</a></h3>
+                    <div class="card-meta">
+                        <span>📁 动漫</span>
+                        <span>💾 12.8GB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 1 -->
+            <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/game1/400/250" alt="游戏封面">
+                    <span class="card-badge">PC</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">赛博朋克 2077 豪华版 完整版免安装</a></h3>
+                    <div class="card-meta">
+                        <span>📁 游戏</span>
+                        <span>💾 85.4GB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Software Card 1 -->
+            <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/soft1/400/250" alt="软件封面">
+                    <span class="card-badge">工具</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">Adobe Photoshop 2024 精简优化版</a></h3>
+                    <div class="card-meta">
+                        <span>📁 软件</span>
+                        <span>💾 2.1GB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TV Series Card 1 -->
+            <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/tv1/400/250" alt="剧集封面">
+                    <span class="card-badge">更新</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">繁花 2023 豪华版 全集 BT下载</a></h3>
+                    <div class="card-meta">
+                        <span>📁 电视剧</span>
+                        <span>💾 25.6GB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Book Card 1 -->
+             <article class="card">
+                <div class="card-thumb">
+                    <img src="https://picsum.photos/seed/book1/400/250" alt="电子书封面">
+                    <span class="card-badge">电子书</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title"><a href="#">三体全集 3D版 EPUB/MOBI 格式</a></h3>
+                    <div class="card-meta">
+                        <span>📁 电子书</span>
+                        <span>💾 12MB</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">立即下载</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <aside class="container">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+            <div>
+                <div class="section-title">
+                    <h2>热门分类</h2>
+                    <a href="#">查看全部 &gt;</a>
+                </div>
+                <div class="grid-layout" style="grid-template-columns: repeat(4, 1fr);">
+                    <a href="#" class="card" style="padding: 20px; text-align: center; height: auto; box-shadow: none; border: 1px solid var(--border-color);">
+                        <div style="font-size: 24px; margin-bottom: 8px;">🎬</div>
+                        <div style="font-size: 14px;">高清电影</div>
+                    </a>
+                    <a href="#" class="card" style="padding: 20px; text-align: center; height: auto; box-shadow: none; border: 1px solid var(--border-color);">
+                        <div style="font-size: 24px; margin-bottom: 8px;">📺</div>
+                        <div style="font-size: 14px;">电视剧集</div>
+                    </a>
+                    <a href="#" class="card" style="padding: 20px; text-align: center; height: auto; box-shadow: none; border: 1px solid var(--border-color);">
+                        <div style="font-size: 24px; margin-bottom: 8px;">🎮</div>
+                        <div style="font-size: 14px;">PC游戏</div>
+                    </a>
+                    <a href="#" class="card" style="padding: 20px; text-align: center; height: auto; box-shadow: none; border: 1px solid var(--border-color);">
+                        <div style="font-size: 24px; margin-bottom: 8px;">📱</div>
+                        <div style="font-size: 14px;">手机软件</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <div class="sidebar-title">本周热门</div>
+                <ul class="hot-list">
+                    <li><a href="#"><span>黑神话：悟空 完整版</span> <span class="hot-rank">🔥 98%</span></a></li>
+                    <li><a href="#"><span>流浪地球3 预告片</span> <span class="hot-rank">🔥 95%</span></a></li>
+                    <li><a href="#"><span>Windows 11 23H2 ISO</span> <span class="hot-rank">🔥 92%</span></a></li>
+                    <li><a href="#"><span>原神 4.5 版本资源</span> <span class="hot-rank">🔥 90%</span></a></li>
+                    <li><a href="#"><span>Python 编程教程</span> <span class="hot-rank">🔥 88%</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于BT蚂蚁</h4>
+                    <p style="font-size: 13px; line-height: 1.8;">BT蚂蚁致力于为用户提供最优质的P2P资源分享平台。所有资源均来自互联网，我们仅提供索引服务，请于下载后24小时内删除。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">热门排行</a></li>
+                        <li><a href="#">最新发布</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>免责声明</h4>
+                    <ul>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">不良信息举报</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023-2024 BT蚂蚁资源站. All rights reserved. 仅供技术研究与学习交流使用.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
