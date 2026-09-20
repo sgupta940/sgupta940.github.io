@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冒险日记武器大师攻略站 - 提供游戏内武器选择、技能搭配、流派养成及实战技巧深度解析，助你打造最强角色。">
+    <meta name="keywords" content="冒险日记武器大师, 冒险日记攻略, 游戏装备推荐, 游戏流派分析">
+    <title>冒险日记武器大师-游戏流派养成与实战攻略指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Featured Weapon */
+        .featured-section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .featured-card {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-img {
+            width: 40%;
+            background-color: #ddd;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 3rem;
+        }
+
+        .featured-content {
+            width: 60%;
+            padding: 40px;
+        }
+
+        .featured-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .guide-item {
+            display: flex;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            align-items: center;
+        }
+
+        .guide-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(74, 144, 226, 0.15);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .guide-info {
+            flex: 1;
+        }
+
+        .guide-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .guide-info p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-3, .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .featured-card {
+                flex-direction: column;
+            }
+            .featured-img {
+                width: 100%;
+                min-height: 200px;
+            }
+            .featured-content {
+                width: 100%;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .grid-3, .grid-2, .stats-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .featured-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>⚔️</span> 冒险日记武器大师
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#weapons">武器推荐</a></li>
+                    <li><a href="#builds">流派搭配</a></li>
+                    <li><a href="#guide">新手攻略</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>解锁战斗潜能</h1>
+        <p>全方位解析冒险日记中的武器大师机制，从基础属性到终极流派，助你轻松应对高难度挑战。</p>
+        <a href="#builds" class="cta-button">开始构建你的流派</a>
+    </section>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>12+</h3>
+                <p>核心武器</p>
+            </div>
+            <div class="stat-item">
+                <h3>45+</h3>
+                <p>实战流派</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>数据准确</p>
+            </div>
+            <div class="stat-item">
+                <h3>24h</h3>
+                <p>实时更新</p>
+            </div>
+        </div>
+
+        <!-- Featured Weapon -->
+        <section id="weapons" class="featured-section">
+            <div class="section-header">
+                <h2>本周热门武器</h2>
+                <a href="#" class="card-link">查看全部武器库 →</a>
+            </div>
+            <article class="featured-card">
+                <div class="featured-img">🗡️</div>
+                <div class="featured-content">
+                    <div class="tags">
+                        <span class="tag">T0级</span>
+                        <span class="tag">物理输出</span>
+                        <span class="tag">高爆发</span>
+                    </div>
+                    <h3>寒冰巨剑 - 碎冰者</h3>
+                    <p>作为冒险日记中极具代表性的武器，寒冰巨剑在PVE和PVP中都有极高的表现。其特殊的冰冻效果能有效控制战场节奏，配合暴击词条可瞬间融化敌人。</p>
+                    <ul style="margin-bottom: 20px; color: #555;">
+                        <li>✓ 攻击范围：大</li>
+                        <li>✓ 伤害类型：物理/冰冻</li>
+                        <li>✓ 推荐指数：★★★★★</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="padding: 10px 25px; font-size: 1rem;">查看详细评测</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="grid-3">
+            <!-- Column 1: Guide & Tips -->
+            <div class="card">
+                <span class="card-icon">📚</span>
+                <h3>新手入门指南</h3>
+                <p>对于刚接触冒险日记的玩家，选择第一把武器至关重要。本栏目详细讲解了如何根据自身游戏风格选择合适的初始装备。</p>
+                <a href="#" class="card-link">阅读入门指南</a>
+            </div>
+
+            <!-- Column 2: Advanced Builds -->
+            <div class="card">
+                <span class="card-icon">🛠️</span>
+                <h3>流派搭配推荐</h3>
+                <p>深入探讨武器与技能、符文的组合。无论是追求极致伤害的“秒杀流”，还是稳健生存的“防御反击流”，这里都有答案。</p>
+                <a href="#" class="card-link">探索流派组合</a>
+            </div>
+
+            <!-- Column 3: Weapon Analysis -->
+            <div class="card">
+                <span class="card-icon">🔍</span>
+                <h3>武器属性解析</h3>
+                <p>通过数据图表分析每一把武器的攻击速度、攻击力成长及特殊被动效果，帮助玩家做出最优决策。</p>
+                <a href="#" class="card-link">查看属性分析</a>
+            </div>
+        </div>
+
+        <!-- Guide List Section -->
+        <section id="builds" style="margin-top: 40px;">
+            <div class="section-header">
+                <h2>热门流派构建</h2>
+            </div>
+            <div class="guide-list">
+                <div class="guide-item">
+                    <div class="guide-number">01</div>
+                    <div class="guide-info">
+                        <h4>狂暴双刀流</h4>
+                        <p>利用双刀的高攻速叠加流血效果，适合快速清理成群的小怪，PVP中可打断对手施法。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-number">02</div>
+                    <div class="guide-info">
+                        <h4>重锤破甲流</h4>
+                        <p>专注于击破敌人的防御护甲，造成真实伤害，是挑战高防御Boss的首选配置。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-number">03</div>
+                    <div class="guide-info">
+                        <h4>元素法师剑</h4>
+                        <p>将物理剑技与元素魔法结合，实现混合伤害输出，应对不同属性的敌人更加灵活。</p>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <div class="guide-number">04</div>
+                    <div class="guide-info">
+                        <h4>隐匿刺客匕首</h4>
+                        <p>高机动性，擅长背刺和爆发，通过闪避机制规避伤害，适合技术型玩家。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="margin-top: 60px;">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+            </div>
+            <div class="card">
+                <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Q1: 武器大师的前期过渡装备应该怎么选？</h3>
+                <p style="margin-bottom: 20px; color: var(--text-light);">在游戏初期，建议优先选择基础攻击力较高且易于获取的武器。例如长剑或斧头，它们在低等级副本中的性价比最高。同时，关注武器的攻击速度，过慢的武器在前期清怪效率较低。</p>
+                
+                <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Q2: 如何判断一把武器是否适合我的职业定位？</h3>
+                <p style="margin-bottom: 20px; color: var(--text-light);">判断标准主要看“攻击频率”与“伤害类型”。如果你走的是持续输出路线，应选择攻速快的武器；如果你走的是爆发路线，应选择高单次伤害的武器。此外，武器的特殊被动效果（如吸血、暴击加成）是否与你的技能搭配也是关键。</p>
+
+                <h3 style="margin-bottom: 15px; color: var(--secondary-color);">Q3: 哪里可以获取稀有武器图纸？</h3>
+                <p style="margin-bottom: 0; color: var(--text-light);">稀有图纸通常掉落自高难度的地下城副本、特定的活动任务奖励，或是通过公会商店兑换。建议多参与公会活动，并关注游戏内的限时挑战。</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px; color: white;">
+                    <span>⚔️</span> 冒险日记武器大师
+                </div>
+                <p style="font-size: 0.9rem; line-height: 1.6;">
+                    本站致力于为玩家提供最全面、最准确的冒险日记游戏攻略与武器数据分析。我们专注于帮助玩家提升游戏体验，打造最强角色。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">武器大全</a></li>
+                    <li><a href="#">流派分析</a></li>
+                    <li><a href="#">装备图鉴</a></li>
+                    <li><a href="#">玩家社区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>游戏资讯</h4>
+                <ul>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">活动公告</a></li>
+                    <li><a href="#">平衡性调整</a></li>
+                    <li><a href="#">开发者日志</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">投稿合作</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 冒险日记武器大师攻略站. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            const navLinks = document.querySelectorAll('nav a');
+
+            menuBtn.addEventListener('click', function() {
+                const isHidden = window.getComputedStyle(nav).display === 'none';
+                if (isHidden) {
+                    nav.style.display = 'block';
+                    nav.style.position = 'absolute';
+                    nav.style.top = '70px';
+                    nav.style.left = '0';
+                    nav.style.width = '100%';
+                    nav.style.background = 'white';
+                    nav.style.padding = '20px';
+                    nav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                    
+                    const ul = nav.querySelector('ul');
+                    ul.style.flexDirection = 'column';
+                    ul.style.gap = '15px';
+                    ul.style.alignItems = 'center';
+                } else {
+                    nav.style.display = 'none';
+                }
+            });
+
+            // 点击链接后自动收起菜单（如果是移动端）
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        nav.style.display = 'none';
+                    }
+                });
+            });
+
+            // 简单的平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
