@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="春暖花开性8有你 - 专注于春季养生、户外活动与情感互动的健康生活指南，提供春季健康饮食、运动建议及人际交往技巧。">
+    <meta name="keywords" content="春暖花开性8有你, 春季养生, 户外活动, 情感交流, 健康生活">
+    <title>春暖花开性8有你 - 春季健康生活与情感互动指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #27ae60;
+            --accent-color: #e74c3c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f9fbfd;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+            --shadow-md: 0 8px 24px rgba(46, 204, 113, 0.15);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
+            background-color: var(--secondary-color);
+        }
+
+        /* Section Titles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Feature Grid */
+        .features {
+            background-color: var(--white);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Content Layout */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Article List */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            color: var(--text-dark);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #e8f5e9;
+            color: var(--secondary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .guide-count {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Interactive Activity */
+        .activity-section {
+            background: linear-gradient(rgba(46, 204, 113, 0.9), rgba(39, 174, 96, 0.9)), url('https://picsum.photos/seed/nature/1200/600') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .activity-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .activity-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .activity-box p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--secondary-color);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: none;
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-col p {
+            color: #bdc3c7;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 15px;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>🌿</span> 春暖花开性8有你
+            </a>
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#features">健康生活</a></li>
+                    <li><a href="#articles">情感指南</a></li>
+                    <li><a href="#activity">户外计划</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>拥抱春日生机<br>让生活与爱同行</h1>
+            <p>在这个万物复苏的季节，我们为您提供科学的春季养生建议、户外活动指南以及增进人际情感交流的实用技巧，助您享受健康美好的春日时光。</p>
+            <a href="#articles" class="hero-btn">开始探索</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding features">
+        <div class="container">
+            <div class="section-header">
+                <h2>春季核心指南</h2>
+                <p>全方位覆盖身心健康与社交互动</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>科学饮食调养</h3>
+                    <p>春季如何通过饮食调理身体机能，补充维生素，增强免疫力，保持活力满满。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🚴</div>
+                    <h3>户外运动建议</h3>
+                    <p>适合春季的轻运动推荐，包括慢跑、骑行及徒步，帮助身心释放压力。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>情感交流技巧</h3>
+                    <p>在温暖的季节里，如何通过有效沟通与互动，加深与家人、朋友及伴侣的关系。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <section id="articles" class="section-padding">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Main Articles -->
+                <main class="article-list">
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/spring_food/800/400" alt="春季养生美食" class="article-image">
+                        <div class="article-content">
+                            <div class="article-meta">饮食养生 · 2023-04-12</div>
+                            <h3 class="article-title">春日尝鲜：这些时令食材是健康首选</h3>
+                            <p class="article-excerpt">春季是品尝新鲜蔬菜和野菜的最佳时期。本文为您介绍几样春季最具营养价值的食材，并提供简单的烹饪建议，助您在享受美味的同时摄取丰富的维生素和矿物质。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/park_walk/800/400" alt="春季户外散步" class="article-image">
+                        <div class="article-content">
+                            <div class="article-meta">运动健康 · 2023-04-10</div>
+                            <h3 class="article-title">走出户外：春季慢跑与徒步的最佳路线</h3>
+                            <p class="article-excerpt">随着气温回升，户外运动逐渐成为人们的选择。选择合适的路线、注意防晒与补水，是享受春日运动的关键。我们为您整理了城市周边最受欢迎的春季徒步路线。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/friends_meet/800/400" alt="朋友聚会" class="article-image">
+                        <div class="article-content">
+                            <div class="article-meta">社交情感 · 2023-04-08</div>
+                            <h3 class="article-title">春日聚会指南：如何组织一次难忘的户外野餐</h3>
+                            <p class="article-excerpt">与亲友共度美好时光是春日的一大乐事。从场地选择、食物搭配到活动策划，本文将为您提供一份详尽的野餐指南，让您的聚会更加温馨和谐。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">热门标签</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">#春季养生</a>
+                            <a href="#" class="tag">#户外徒步</a>
+                            <a href="#" class="tag">#健康食谱</a>
+                            <a href="#" class="tag">#情感交流</a>
+                            <a href="#" class="tag">#野餐攻略</a>
+                            <a href="#" class="tag">#春游计划</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">精选指南</h3>
+                        <ul class="guide-list">
+                            <li><a href="#">春季过敏预防 <span class="guide-count">12</span></a></li>
+                            <li><a href="#">如何改善睡眠质量 <span class="guide-count">8</span></a></li>
+                            <li><a href="#">职场春季减压技巧 <span class="guide-count">15</span></a></li>
+                            <li><a href="#">家庭园艺入门 <span class="guide-count">5</span></a></li>
+                            <li><a href="#">春季护肤要点 <span class="guide-count">9</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget" style="background-color: #fff0f0; border: 1px solid #ffe0e0;">
+                        <h3 class="widget-title" style="color: #c0392b;">温馨提示</h3>
+                        <p style="font-size: 0.9rem; color: #7f8c8d;">春季气温变化大，请注意适时增减衣物，预防感冒。享受春光的同时，也要关注身体健康。</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity CTA Section -->
+    <section id="activity" class="section-padding activity-section">
+        <div class="container">
+            <div class="activity-box">
+                <h2>加入我们的春日计划</h2>
+                <p>无论是独自漫步还是与挚爱同行，这个春天都值得被记录。制定您的专属活动计划，让生活充满色彩与活力。</p>
+                <a href="#" class="btn-outline">查看活动日历</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题解答</h2>
+                <p>关于春季生活与健康的小知识</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">春季适合进行哪些强度的运动？ <span>+</span></div>
+                    <div class="faq-answer">春季适合进行中等强度的有氧运动，如快走、慢跑、瑜伽或太极拳。这些运动有助于促进血液循环，适应季节变化。</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">如何缓解春季常见的皮肤干燥？ <span>+</span></div>
+                    <div class="faq-answer">多喝水、使用保湿护肤品、避免长时间紫外线直射。饮食上可多摄入富含维生素A和E的食物，如胡萝卜和坚果。</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">在户外活动中如何保证饮食安全？ <span>+</span></div>
+                    <div class="faq-answer">避免食用生冷食物，随身携带充足的水和易消化的食物。注意食物保鲜，避免在高温下长时间存放。</div>
+                </div>
+                <div class="faq-item" onclick="toggleFaq(this)">
+                    <div class="faq-question">如何改善春季容易出现的情绪波动？ <span>+</span></div>
+                    <div class="faq-answer">多参与户外阳光活动，保持规律作息，适当与朋友交流倾诉，必要时可寻求专业心理咨询帮助。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <span>🌿</span> 春暖花开性8有你
+                    </div>
+                    <p>致力于为您提供最实用的春季生活指南，帮助您在温暖的季节里收获健康、快乐与美好的情感体验。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">最新资讯</a></li>
+                        <li><a href="#">会员服务</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书账号</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 春暖花开性8有你 版权所有. 本站内容仅供健康参考，不构成医疗建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('show');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all other items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-question span').textContent = '+';
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                element.classList.add('active');
+                element.querySelector('.faq-question span').textContent = '-';
+            }
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
